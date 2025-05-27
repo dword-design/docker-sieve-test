@@ -4,6 +4,12 @@ import { execa, execaCommand } from 'execa';
 import outputFiles from 'output-files';
 import { test } from 'playwright-local-tmp-dir';
 
+/**
+ * Otherwise error in GitHub Actions:
+ * sieve-test: Error: sieve: file storage: Failed to stat sieve storage path: stat(test.sieve) in directory /test failed: Permission denied (euid=1000(testuser) egid=1000(testuser) missing +x perm: /test, dir owned by 1001:118 mode=0700)
+ */
+const fixGitHubActionsPermissions = () => execaCommand('chmod +x .');
+
 test.beforeAll(() =>
   execaCommand('docker build --file index.dockerfile --tag self .'),
 );
@@ -24,7 +30,7 @@ test('keep @usesdocker', async () => {
       }\n
     `,
   });
-  await execaCommand('chmod +x .');
+  await fixGitHubActionsPermissions();
 
   const { stdout } = await execa('docker', [
     'run',
@@ -63,7 +69,7 @@ test('discard @usesdocker', async () => {
       }\n
     `,
   });
-  await execaCommand('chmod +x .');
+  await fixGitHubActionsPermissions();
 
   const { stdout } = await execa('docker', [
     'run',
