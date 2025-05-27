@@ -21,7 +21,7 @@ test('keep @usesdocker', async () => {
     'test.sieve': dedent`
       require ["fileinto"];
 
-      if address :is "from" "test@bar.de" {
+      if address :is "From" "test@bar.de" {
         discard;
       }\n
     `,
@@ -61,7 +61,7 @@ test('discard @usesdocker', async () => {
     'test.sieve': dedent`
       require ["fileinto"];
 
-      if address :is "from" "foo@bar.de" {
+      if address :is "From" "foo@bar.de" {
         discard;
       }\n
     `,
