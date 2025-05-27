@@ -24,6 +24,7 @@ test('keep @usesdocker', async () => {
       }\n
     `,
   });
+  await execaCommand('chmod +x .');
 
   const { stdout } = await execa('docker', [
     'run',
@@ -62,6 +63,7 @@ test('discard @usesdocker', async () => {
       }\n
     `,
   });
+  await execaCommand('chmod +x .');
 
   const { stdout } = await execa('docker', [
     'run',
