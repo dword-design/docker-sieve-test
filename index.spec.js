@@ -10,10 +10,6 @@ import { test } from 'playwright-local-tmp-dir';
  */
 const fixGitHubActionsPermissions = () => execaCommand('chmod +x .');
 
-test.beforeAll(() =>
-  execaCommand('docker build --file index.dockerfile --tag self .'),
-);
-
 test('keep @usesdocker', async () => {
   await outputFiles({
     'test.eml': dedent`
@@ -30,6 +26,7 @@ test('keep @usesdocker', async () => {
       }\n
     `,
   });
+
   await fixGitHubActionsPermissions();
 
   const { stdout } = await execa('docker', [
@@ -69,6 +66,7 @@ test('discard @usesdocker', async () => {
       }\n
     `,
   });
+
   await fixGitHubActionsPermissions();
 
   const { stdout } = await execa('docker', [
