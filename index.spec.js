@@ -19,8 +19,6 @@ test('keep @usesdocker', async () => {
       This is a test email body.\n
     `,
     'test.sieve': dedent`
-      require ["fileinto"];
-
       if address :is "From" "test@bar.de" {
         discard;
       }\n
@@ -59,8 +57,6 @@ test('discard @usesdocker', async () => {
       This is a test email body.\n
     `,
     'test.sieve': dedent`
-      require ["fileinto"];
-
       if address :is "From" "foo@bar.de" {
         discard;
       }\n
