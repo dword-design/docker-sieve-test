@@ -30,7 +30,7 @@ test('keep @usesdocker', async () => {
     '--rm',
     '-v',
     `${process.cwd()}:/test`,
-    'sieve-test',
+    'self',
     'test.sieve',
     'test.eml',
   ]);
@@ -68,7 +68,7 @@ test('discard @usesdocker', async () => {
     '--rm',
     '-v',
     `${process.cwd()}:/test`,
-    'sieve-test',
+    'self',
     'test.sieve',
     'test.eml',
   ]);
