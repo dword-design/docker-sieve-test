@@ -19,7 +19,7 @@ test('keep @usesdocker', async () => {
     'test.sieve': dedent`
       require ["fileinto"];
 
-      if address :is "from" "test" {
+      if address :is "from" "test@bar.de" {
         discard;
       }\n
     `,
@@ -49,7 +49,7 @@ test('keep @usesdocker', async () => {
 test('discard @usesdocker', async () => {
   await outputFiles({
     'test.eml': dedent`
-      From: Renovate Bot <renovate[bot]@users.noreply.github.com>
+      From: Foo <foo@bar.de>
       Subject: Test PR Run
 
       This is a test email body.\n
@@ -57,7 +57,7 @@ test('discard @usesdocker', async () => {
     'test.sieve': dedent`
       require ["fileinto"];
 
-      if address :is "from" "Renovate Bot <renovate[bot]@users.noreply.github.com>" {
+      if address :is "from" "foo@bar.de" {
         discard;
       }\n
     `,
