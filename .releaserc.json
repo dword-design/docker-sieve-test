@@ -17,9 +17,15 @@
       }
     ],
     [
-      "semantic-release-docker",
+      "@codedependant/semantic-release-docker",
       {
-        "name": "dworddesign/sieve-test"
+        "dockerFile": "index.dockerfile",
+        "dockerImage": "sieve-test",
+        "dockerPlatform": [
+          "linux/amd64",
+          "linux/arm64"
+        ],
+        "dockerProject": "dworddesign"
       }
     ]
   ]
