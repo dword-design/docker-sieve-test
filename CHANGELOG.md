@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/dword-design/docker-sieve-test/compare/v1.0.0...v1.0.1) (2026-01-31)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#12](https://github.com/dword-design/docker-sieve-test/issues/12)) ([b3d1955](https://github.com/dword-design/docker-sieve-test/commit/b3d19555a2b75955699a1203cb5fcdd421c8ea9e))
+
 # 1.0.0 (2025-05-27)
 
 
