@@ -18,7 +18,7 @@
     "test": "base test"
   },
   "devDependencies": {
-    "@dword-design/base": "^12.0.9",
+    "@dword-design/base": "^16.0.0",
     "@dword-design/base-config-docker": "^3.0.1",
     "@playwright/test": "^1.52.0",
     "dedent": "^1.6.0",
