@@ -81,3 +81,25 @@ test('discard @usesdocker', async ({}, testInfo) => {
       (none)\n
   `);
 });
+
+test('spamtest @usesdocker', async ({}, testInfo) => {
+  const cwd = testInfo.outputPath();
+
+  await outputFiles(cwd, {
+    'test.eml': endent`
+      From: Foo <foo@bar.de>
+      Subject: Test
+
+      This is a test email body.\n
+    `,
+    'test.sieve': 'require ["spamtest"];\n',
+  });
+
+  await fixGitHubActionsPermissions({ cwd });
+
+  await execa(
+    'docker',
+    ['run', '--rm', '-v', `${cwd}:/test`, 'self', 'test.sieve', 'test.eml'],
+    { cwd },
+  );
+});

@@ -11,4 +11,5 @@ USER testuser
 WORKDIR /test
 
 # Use -t /dev/null to suppress trace, while keeping test-only mode
-ENTRYPOINT ["sieve-test", "-t", "/dev/null"]
+# Use -x to enable spamtest extension
+ENTRYPOINT ["sieve-test", "-t", "/dev/null", "-x", "+spamtest"]
