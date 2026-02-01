@@ -82,6 +82,7 @@ test('discard @usesdocker', async ({}, testInfo) => {
   `);
 });
 
+// TODO: See user email from 31.01.2026
 test('spamtest @usesdocker', async ({}, testInfo) => {
   const cwd = testInfo.outputPath();
 
