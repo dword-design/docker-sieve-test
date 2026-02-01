@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/dword-design/docker-sieve-test/compare/v1.0.1...v1.0.2) (2026-02-01)
+
+
+### Bug Fixes
+
+* add spamtest ([85d0254](https://github.com/dword-design/docker-sieve-test/commit/85d02547839f07c47cd6244943eed37a2ebd80e8))
+
 ## [1.0.1](https://github.com/dword-design/docker-sieve-test/compare/v1.0.0...v1.0.1) (2026-01-31)
 
 
